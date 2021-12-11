@@ -1,0 +1,80 @@
+﻿@model Breed
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row mb-2 ">
+    <div class="col-2">
+        <a title="Edit" class="btn btn-outline-light " asp-controller="Breeds" asp-action="Edit" asp-route-id="@Model.BreedId"><i class="bi bi-pencil"></i></a>
+    </div>
+</div>
+
+<div class="row text-center mb-4">
+    <h2 class="text-danger text-center col-12">Do you really Want to Delete this record?</h2>
+    <hr />
+</div>
+
+<div class="row ">
+
+    <div class="col-12">
+
+        <form method="post" asp-action="Delete" asp-controller="Breeds" asp-route-BreedId="@Model.BreedId" id="CreateFrom"
+              data-ajax="true"
+              data-ajax-mehtod="Post"
+              data-ajax-mode="Replace"
+              data-ajax-update="#CreateFrom"
+              data-ajax-success="success">
+
+            <div class="row form-group mb-2 offset-3">
+                <label asp-for="BreedName" class="col-form-label col-2"></label>
+                <div class="col-4">
+                    <input asp-for="BreedName" class="form-control" readonly />
+                </div>
+            </div>
+
+            <div class="row form-group mb-2 offset-3">
+                <label asp-for="AverageAge" class="col-form-label col-2"></label>
+                <div class="col-4">
+                    <input type="text" asp-for="AverageAge" class="form-control" readonly />
+                </div>
+
+            </div>
+
+            <div class="row form-group mb-2 offset-3">
+                <label asp-for="Description" class="col-form-label col-2"></label>
+                <div class="col-4">
+                    <textarea asp-for="Description" class="form-control" readonly></textarea>
+                </div>
+            </div>
+
+            <div class="row form-group mb-2 offset-3">
+                <div class="offset-2">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+    <div>
+        <a asp-action="Index" asp-controller="Breeds">Back</a>
+    </div>
+</div>
+
+
+@section styles{
+
+    <link href="~/libs/bootstrap/icons/font/bootstrap-icons.css" rel="stylesheet" />
+}
+
+
+@section scripts{
+    <script src="~/libs/jquery/jquery.js"></script>
+    <script src="~/libs/jquery/ajax/jquery.unobtrusive-ajax.js"></script>
+}
+
+
+
+

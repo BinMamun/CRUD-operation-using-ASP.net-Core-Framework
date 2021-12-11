@@ -1,0 +1,73 @@
+﻿@model Breed
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row mb-2 ">
+    <div class="col-2">
+        <a title="Delete" class="btn btn-outline-light " asp-controller="Breeds" asp-action="Delete" asp-route-id="@Model.BreedId"><i class="bi bi-trash"></i></a>
+    </div>
+</div>
+
+<div class="text-center">
+    <h2>Edit Breed</h2>
+    <hr />
+</div>
+
+<div class="row ">
+    <div class="col-12 offset-3">
+        <form method="post" asp-action="Edit" asp-controller="Breeds" asp-route-BreedId="@Model.BreedId">
+
+            <div class="row form-group mb-2">
+                <label asp-for="BreedName" class="col-form-label col-2"></label>
+                <div class="col-3">
+                    <input asp-for="BreedName" class="form-control" />
+                </div>
+                <span asp-validation-for="BreedName" class="text-danger col-4"></span>
+
+            </div>
+
+            <div class="row form-group mb-2">
+                <label asp-for="AverageAge" class="col-form-label col-2"></label>
+                <div class="col-3">
+                    <input type="text" asp-for="AverageAge" class="form-control" />
+                </div>
+                <span asp-validation-for="AverageAge" class="text-danger col-4"></span>
+            </div>
+
+            <div class="row form-group mb-2">
+                <label asp-for="Description" class="col-form-label col-2"></label>
+                <div class="col-3">
+                    <textarea asp-for="Description" class="form-control"></textarea>
+                </div>
+                <span asp-validation-for="Description" class="text-danger col-4"></span>
+
+            </div>
+
+            <div class="row form-group mb-2">
+                <div class="offset-2">
+                    <button type="submit" class="btn btn-outline-success">Update</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+    <div>
+        <a asp-action="Index" asp-controller="Breeds">Back</a>
+    </div>
+</div>
+
+@section styles{
+    <link href="~/libs/bootstrap/icons/font/bootstrap-icons.css" rel="stylesheet" />
+}
+
+@section scripts{
+
+    <script src="~/libs/jquery/jquery.js"></script>
+    <script src="~/libs/jquery/jquery.validate.js"></script>
+    <script src="~/libs/jquery/jquery.validate.unobtrusive.js"></script>
+
+
+}
+
+
