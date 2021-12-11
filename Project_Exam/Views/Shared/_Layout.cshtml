@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title  -My_Core_Project</title>
+
+    <link href="~/libs/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            padding-top: 70px;
+        }
+    </style>
+
+    @await RenderSectionAsync("styles", false)
+
+
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-success navbar-expand-md fixed-top">
+        <div class="container-fluid">
+            <span class="navbar-brand">Asp.Net Core</span>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Breeds" asp-action="Index">Breeds</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Cats" asp-action="Index">Cats</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid" style="min-height: calc(100vh - 140px)">
+        @RenderBody()
+    </div>
+
+    <hr />
+    <div>
+        <footer class="d-flex justify-content-center text-success">
+
+            &copy; @DateTime.Now.Year - Core Project
+        </footer>
+    </div>
+
+    @await RenderSectionAsync("scripts", false)
+
+
+    <script src="~/libs/bootstrap/js/bootstrap.bundle.js"></script>
+
+</body>
+</html>
